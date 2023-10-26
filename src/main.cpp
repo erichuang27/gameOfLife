@@ -1,9 +1,12 @@
 #include <SFML/Graphics.hpp>
+#include "game.h"
 
 int main()
 {
-    auto window = sf::RenderWindow{ { 1920u, 1080u }, "CMake SFML Project" };
+    auto window = sf::RenderWindow{ { 1000u, 1000u }, "GameOfLife" };
     window.setFramerateLimit(144);
+    
+    Game game(400, 400);
 
     while (window.isOpen())
     {
@@ -16,6 +19,9 @@ int main()
         }
 
         window.clear();
+        sf::RectangleShape square(sf::Vector2f(25.f, 25.f));
+        window.draw(square);
+
         window.display();
     }
 }
